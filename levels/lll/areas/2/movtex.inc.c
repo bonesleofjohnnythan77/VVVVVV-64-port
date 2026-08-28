@@ -1,0 +1,21 @@
+Movtex lll_area_2_movtex_tris_07028790[] = {
+    MOV_TEX_SPD(50),
+    MOV_TEX_TRIS(655, -86, -2934, 0, 0),
+    MOV_TEX_TRIS(527, 256, -2934, 2, 0),
+    MOV_TEX_TRIS(436, 1042, -2934, 4, 0),
+    MOV_TEX_TRIS(430, 2555, -2934, 7, 0),
+    MOV_TEX_TRIS(430, 5248, -2934, 11, 0),
+    MOV_TEX_TRIS(148, -86, -2669, 0, 1),
+    MOV_TEX_TRIS(256, 281, -2823, 2, 1),
+    MOV_TEX_TRIS(138, 946, -2870, 4, 1),
+    MOV_TEX_TRIS(1, 2555, -2917, 7, 1),
+    MOV_TEX_TRIS(0, 5248, -2928, 11, 1),
+    MOV_TEX_TRIS(36, 63, -2766, 1, 1),
+    MOV_TEX_TRIS(-574, -86, -2934, 0, 2),
+    MOV_TEX_TRIS(-471, 247, -2934, 2, 2),
+    MOV_TEX_TRIS(-389, 775, -2934, 4, 2),
+    MOV_TEX_TRIS(-390, 2555, -2934, 7, 2),
+    MOV_TEX_TRIS(-430, 5248, -2934, 11, 2),
+    MOV_TEX_END(),
+};
+

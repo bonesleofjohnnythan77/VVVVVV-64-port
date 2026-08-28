@@ -1,0 +1,29 @@
+const GeoLayout ddd_geo_0E000478[] = {
+    GEO_CULLING_RADIUS(10000),
+    GEO_OPEN_NODE(),
+        GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ddd_dl_07009030),
+        GEO_DISPLAY_LIST(LAYER_OPAQUE, ddd_dl_07009120),
+        GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ddd_dl_07009208),
+    GEO_CLOSE_NODE(),
+    GEO_END(),
+};
+
+const GeoLayout ddd_geo_0E0004A0[] = {
+    GEO_CULLING_RADIUS(10000),
+    GEO_OPEN_NODE(),
+        GEO_DISPLAY_LIST(LAYER_OPAQUE, ddd_dl_0700AF10),
+        GEO_DISPLAY_LIST(LAYER_ALPHA, ddd_dl_0700B068),
+    GEO_CLOSE_NODE(),
+    GEO_END(),
+};
+
+const GeoLayout ddd_geo_0E000450[] = {
+    GEO_CULLING_RADIUS(700),
+    GEO_OPEN_NODE(),
+        GEO_SHADOW(SHADOW_SQUARE_PERMANENT, 180, 120),
+        GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OPAQUE, ddd_dl_0700D2A0),
+        GEO_CLOSE_NODE(),
+    GEO_CLOSE_NODE(),
+    GEO_END(),
+};

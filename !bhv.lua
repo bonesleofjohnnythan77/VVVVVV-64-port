@@ -2,6 +2,7 @@
 
 --Checkpoint code (translated to Lua)
 
+die_audio = audio_stream_load("sound/v_die.mp3")
 sCheckpointPos = gVec3fZero()
 sCheckpointTimer = 0
 sCheckpointYaw = 0
@@ -27,7 +28,7 @@ function bhv_checkpoint_marker(o)
         local m = gMarioStates[0]
 
         if m.floor.type == 35 and (m.pos.y - m.floorHeight) <= 4000.0 then
-            --play_sound(0x24100081, gGlobalSoundSource)
+            audio_stream_play(die_audio, false, 1)
             m.hurtCounter = 5
         end
     end
@@ -56,6 +57,7 @@ if m.playerIndex ~= 0 then return end
     end
 
     if (m.hurtCounter >= 1) then
+        audio_stream_play(die_audio, false, 1)
         m.flags = 20;
         m.hurtCounter = 0;
         sCheckpointTimer = 23;

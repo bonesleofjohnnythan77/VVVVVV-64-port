@@ -22,3 +22,15 @@ BEGIN_LOOP(),
 CALL_NATIVE( bhv_checkpoint_marker),
 END_LOOP(),
 };
+
+const BehaviorScript bhvAnimatesOnFloorSwitchPress[] = {
+BEGIN(OBJ_LIST_SURFACE),
+ID(id_bhvAnimatesOnFloorSwitchPress),
+OR_INT(oFlags,65),
+SET_FLOAT(oCollisionDistance,8000),
+//LOAD_COLLISION_DATA(col_rr_geo_000958_0xfb03e0),
+BEGIN_LOOP(),
+//CALL_NATIVE( Func_Custom_0x802aa4e8),
+CALL_NATIVE( load_object_collision_model),
+END_LOOP(),
+};

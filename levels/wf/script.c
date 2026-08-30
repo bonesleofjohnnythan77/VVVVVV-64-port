@@ -68,7 +68,7 @@ const LevelScript level_wf_entry[] = {
     AREA(1, wf_area_1_geo_19005000),
         OBJECT(MODEL_NONE, /* posX */ 0, /* posY */ 1020, /* posZ */ 30548, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x0a0a0000, bhvSpinAirborneWarp),
         OBJECT(MODEL_TTC_CLOCK_HAND /* or MODEL_RR_TRICKY_TRIANGLES, MODEL_BITFS_TUMBLING_PLATFORM, ... (5 total) */, /* posX */ 0, /* posY */ 0, /* posZ */ 32767, /* angleX */ 0, /* angleY */ 90, /* angleZ */ 0, /* behParam */ 0x00000000, bhvAnimatesOnFloorSwitchPress),
-        OBJECT(MODEL_LEVEL_GEOMETRY_0F, /* posX */ 0, /* posY */ 2520, /* posZ */ 30548, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvThiBowlingBallSpawner),
+        OBJECT(MODEL_LEVEL_GEOMETRY_0F, /* posX */ 0, /* posY */ 2520, /* posZ */ 30548, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvRecoveryHeart),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ 0, /* posY */ 0, /* posZ */ 30548, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ 0, /* posY */ 0, /* posZ */ 26738, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ 0, /* posY */ 595, /* posZ */ 23192, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),

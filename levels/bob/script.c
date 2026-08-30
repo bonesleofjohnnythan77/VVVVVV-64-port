@@ -68,7 +68,7 @@ const LevelScript level_bob_entry[] = {
     AREA(1, bob_area_1_geo_19005000),
         OBJECT(MODEL_NONE, /* posX */ 29, /* posY */ 810, /* posZ */ 1, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x000a0000, bhvSpinAirborneWarp),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ -6, /* posY */ 0, /* posZ */ 3055, /* angleX */ 0, /* angleY */ 93, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),
-        OBJECT(MODEL_LEVEL_GEOMETRY_0F, /* posX */ 0, /* posY */ 1500, /* posZ */ 0, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvThiBowlingBallSpawner),
+        OBJECT(MODEL_LEVEL_GEOMETRY_0F, /* posX */ 0, /* posY */ 1500, /* posZ */ 0, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvRecoveryHeart),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ 0, /* posY */ 0, /* posZ */ 0, /* angleX */ 0, /* angleY */ 0, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ -2, /* posY */ 0, /* posZ */ 7969, /* angleX */ 0, /* angleY */ 88, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),
         OBJECT(MODEL_LEVEL_GEOMETRY_0A /* or MODEL_MAIN_MENU_MARIO_NEW_BUTTON_FADE */, /* posX */ -18, /* posY */ 0, /* posZ */ 9955, /* angleX */ 0, /* angleY */ 88, /* angleZ */ 0, /* behParam */ 0x00000000, bhvKickableBoard),

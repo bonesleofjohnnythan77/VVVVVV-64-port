@@ -19,9 +19,22 @@ BEGIN(OBJ_LIST_GENACTOR),
 ID(id_bhvThiBowlingBallSpawner),
 OR_INT(oFlags,1),
 BEGIN_LOOP(),
+CALL_NATIVE( bhv_mario_height_update),
+END_LOOP(),
+};
+
+//Gravity Switch
+
+const BehaviorScript bhvRecoveryHeart[] = {
+BEGIN(OBJ_LIST_GENACTOR),
+ID(id_bhvRecoveryHeart),
+OR_INT(oFlags,1),
+BEGIN_LOOP(),
 CALL_NATIVE( bhv_checkpoint_marker),
 END_LOOP(),
 };
+
+//Spike Wall
 
 const BehaviorScript bhvAnimatesOnFloorSwitchPress[] = {
 BEGIN(OBJ_LIST_SURFACE),

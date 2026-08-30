@@ -26,7 +26,7 @@ function bhv_checkpoint_marker(o)
 
     if sCheckpointTimer == 0 then
         local m = gMarioStates[0]
-
+        if m.playerIndex ~= 0 then return end
         if m.floor.type == 35 and (m.pos.y - m.floorHeight) <= 4000.0 then
             audio_stream_play(die_audio, false, 1)
             m.hurtCounter = 5
@@ -62,6 +62,24 @@ if m.playerIndex ~= 0 then return end
         m.hurtCounter = 0;
         sCheckpointTimer = 23;
     end
+end
+
+function bhv_mario_height_update(o)
+    local m = gMarioStates[0]
+    if m.playerIndex ~= 0 then return end
+
+    if m.floor ~= 0 and m.floor.type == 46 then
+
+        if (m.pos.y - m.floorHeight) <= 75.0 then
+            
+            m.pos.y = m.peakHeight - 160
+
+            m.action = 0x0100088C
+
+        end
+
+    end
+    
 end
 
 hook_event(HOOK_BEFORE_MARIO_UPDATE, mario_checkpoint_update)

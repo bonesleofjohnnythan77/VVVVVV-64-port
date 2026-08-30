@@ -72,7 +72,7 @@ function bhv_mario_height_update(o)
 
         if (m.pos.y - m.floorHeight) <= 75.0 then
             
-            m.pos.y = m.peakHeight - 160
+            m.pos.y = m.ceilHeight - 160
 
             m.action = 0x0100088C
 

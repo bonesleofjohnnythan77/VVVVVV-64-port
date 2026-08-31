@@ -11830,9 +11830,9 @@ Lights1 level_mat_f3dlite_material_lights = gdSPDefLights1(
 Gfx wf_1_displaylist_0xe0267f0[] = {
     gsSPSetGeometryMode(0),
 	gsSPSetLights1(level_mat_f3dlite_material_lights),
-	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, ENVIRONMENT, 0, 0, 0, 0, ENVIRONMENT, COMBINED, 0, SHADE, 0, 0, 0, 0, 0),
-    gsDPSetEnvColor(255, 0, 255, 255),
+    gsDPSetCycleType(G_CYC_2CYCLE),
+    gsDPSetEnvColor(255, 255, 255, 255),
     gsSPClearGeometryMode(G_TEXTURE_GEN),
     gsSPTexture(65535, 65535, 0, 0, 1),
     gsDPSetTextureImage(0, 2, 1, wf_1_texture_0xe000018),

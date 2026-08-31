@@ -1,4 +1,4 @@
-const Collision bob_area_1_collision_0x0E046FC0[] = {
+const Collision bob_area_1_collision[] = {
     COL_INIT(),
     COL_VERTEX_INIT(738),
     COL_VERTEX(-10912, 1812, 10167),
@@ -739,7 +739,7 @@ const Collision bob_area_1_collision_0x0E046FC0[] = {
     COL_VERTEX(-274, -300, 3358),
     COL_VERTEX(-274, 732, 6116),
     COL_VERTEX(2938, -5000, 11703),
-    COL_TRI_INIT(SURFACE_DEFAULT, 994),
+    COL_TRI_INIT(0, 994),
     COL_TRI(0, 1, 2),
     COL_TRI(3, 2, 1),
     COL_TRI(2, 4, 0),
@@ -1734,7 +1734,7 @@ const Collision bob_area_1_collision_0x0E046FC0[] = {
     COL_TRI(619, 734, 616),
     COL_TRI(640, 643, 667),
     COL_TRI(694, 695, 691),
-    COL_TRI_INIT(SURFACE_BURNING, 180),
+    COL_TRI_INIT(1, 180),
     COL_TRI(503, 504, 505),
     COL_TRI(506, 507, 508),
     COL_TRI(509, 505, 506),
@@ -1915,7 +1915,7 @@ const Collision bob_area_1_collision_0x0E046FC0[] = {
     COL_TRI(726, 730, 733),
     COL_TRI(728, 731, 730),
     COL_TRI(727, 729, 731),
-    COL_TRI_INIT(SURFACE_INSTANT_QUICKSAND, 20),
+    COL_TRI_INIT(35, 20),
     COL_TRI(577, 578, 579),
     COL_TRI(577, 580, 581),
     COL_TRI(582, 583, 584),

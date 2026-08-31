@@ -1,4 +1,4 @@
-const Collision castle_grounds_area_1_collision_0x0E007080[] = {
+const Collision castle_grounds_area_1_collision[] = {
     COL_INIT(),
     COL_VERTEX_INIT(153),
     COL_VERTEX(-185, 1276, 1874),
@@ -154,7 +154,7 @@ const Collision castle_grounds_area_1_collision_0x0E007080[] = {
     COL_VERTEX(3923, 163, -3920),
     COL_VERTEX(-4000, 163, -3955),
     COL_VERTEX(3912, 163, 4006),
-    COL_TRI_INIT(SURFACE_DEFAULT, 246),
+    COL_TRI_INIT(0, 246),
     COL_TRI(0, 1, 2),
     COL_TRI(3, 4, 1),
     COL_TRI(5, 6, 4),

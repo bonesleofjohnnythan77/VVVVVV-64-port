@@ -58,7 +58,7 @@ const LevelScript level_bob_entry[] = {
     OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ -8540, 1710, 11259, /* Angle */ 0, 89, 0, /* Param */ 0x0, /* Behavior */ bhvScuttlebugSpawn, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ -9648, 1710, 11055, /* Angle */ 0, 56, 0, /* Param */ 0x0, /* Behavior */ bhvScuttlebugSpawn, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0xa, /* Pos */ -6914, 1812, 11152, /* Angle */ 0, 359, 0, /* Param */ 0x0, /* Behavior */ bhvCheckpoint, /* Act */ 31),
-    OBJECT_WITH_ACTS(/* Model */ 0x7a, /* Pos */ 64, 460, 993, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvStar, /* Act */ 31),
+    OBJECT_WITH_ACTS(/* Model */ 0x7a, /* Pos */ -10514, 2222, 9773, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvStar, /* Act */ 31),
     WARP_NODE(0xa, 0x9, 0x1, 0x0, 0x0),
     WARP_NODE(0xf0, 0x18, 0x1, 0xa, 0x80),
     WARP_NODE(0xf1, 0x9, 0x1, 0xa, 0x0),

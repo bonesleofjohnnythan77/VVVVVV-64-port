@@ -8,7 +8,7 @@ local function mario_check_death(m)
     if gCheckpointTimer == 0 then
         if m.floor and m.floor.type == 35 and (m.pos.y - m.floorHeight) <= 4000.0 then
             play_character_sound(m, CHAR_SOUND_WAAAOOOW)
-            audio_stream_play(deathSound, false, 1)      
+            audio_stream_play(deathSound, false, 1)
             m.hurtCounter = 1
         end
     end
@@ -32,7 +32,7 @@ local function mario_update_checkpoint(m)
 
     if m.hurtCounter >= 1 then
         audio_stream_play(deathSound, false, 1)
-        
+
         m.flags = 20;
         m.hurtCounter = 0;
         gCheckpointTimer = 23;

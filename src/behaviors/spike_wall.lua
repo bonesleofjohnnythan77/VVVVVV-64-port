@@ -26,7 +26,7 @@ local function bhv_spike_wall_loop(o)
         rainbowTimer = 0
     end
 
-    local t5 = (rainbowTimer // 255) % 0xf
+    local t5 = (rainbowTimer // 255) & 0xf
     rainbowTimer = rainbowTimer + 1
 
     if t5 == 0 then

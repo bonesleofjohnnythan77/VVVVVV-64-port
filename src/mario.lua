@@ -22,7 +22,7 @@ local function mario_update_checkpoint(m)
     if gCheckpointTimer ~= 0 then
         if gCheckpointTimer == 1 then
             vec3f_copy(m.pos, gCheckpointPos)
-
+            --set_player_lights_red(m.marioObj.header.gfx.sharedChild, false)
             m.flags = 16;
             m.action = 0x0C400201;
         end
@@ -32,8 +32,8 @@ local function mario_update_checkpoint(m)
 
     if m.hurtCounter >= 1 then
         audio_stream_play(deathSound, false, 1)
-
         m.flags = 20;
+        --set_player_lights_red(m.marioObj.header.gfx.sharedChild, true)
         m.hurtCounter = 0;
         gCheckpointTimer = 23;
     end
@@ -48,13 +48,16 @@ function mario_wrap_y_pos(m)
     end
 end
 
+
+
 local function mario_update(m)
     m.health = 2176
     m.peakHeight = m.pos.y
-
+    m.marioObj.hookRender = 1
     mario_check_death(m)
     mario_update_checkpoint(m)
     mario_wrap_y_pos(m)
+
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

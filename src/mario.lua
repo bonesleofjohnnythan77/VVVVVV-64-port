@@ -1,6 +1,3 @@
-local deathSound = audio_stream_load("sound/sound_death.mp3")
-
-
 for i = 0, MAX_PLAYERS - 1 do
     local s = gPlayerSyncTable[i]
     s.playerDead = 0
@@ -15,7 +12,7 @@ local function mario_check_death(m)
     if gCheckpointTimer == 0 then
         if m.floor and m.floor.type == 35 and (m.pos.y - m.floorHeight) <= 4000.0 then
             play_character_sound(m, CHAR_SOUND_WAAAOOOW)
-            audio_stream_play(deathSound, false, 1)
+
             m.hurtCounter = 1
         end
     end
@@ -40,15 +37,11 @@ local function mario_update_checkpoint(m)
     end
 
     if m.hurtCounter >= 1 then
-        audio_stream_play(deathSound, false, 1)
         m.flags = 20;
         gPlayerSyncTable[0].playerDead = 1
         m.hurtCounter = 0;
         gCheckpointTimer = 23;
     end
-
-
-
 end
 
 function mario_wrap_y_pos(m)
@@ -60,28 +53,22 @@ function mario_wrap_y_pos(m)
     end
 end
 
-
-
 function mario_palette_swap(m)
-
     local np = gNetworkPlayers[m.playerIndex]
     local s = gPlayerSyncTable[m.playerIndex]
-    
+
     if s.playerDead >= 1 then
         for i = 0, PLAYER_PART_MAX - 1 do
-            network_player_set_override_palette_color(np, i, {r = 255, g = 0, b = 0})
+            network_player_set_override_palette_color(np, i, { r = 255, g = 0, b = 0 })
         end
     end
 
-    if not charSelectExists then 
+    if not charSelectExists then
         if s.playerDead == 0 then
             network_player_reset_override_palette(np)
         end
     end
-
 end
-
-
 
 local function mario_update(m)
     m.health = 2176
@@ -94,6 +81,3 @@ local function mario_update(m)
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
-
-
-

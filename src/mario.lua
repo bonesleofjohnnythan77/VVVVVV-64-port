@@ -1,5 +1,33 @@
 local deathSound = audio_stream_load("sound/sound_death.mp3")
 
+local redPalette = {
+    palette = {
+        [PANTS] = {r = 255, g = 0, b = 0},
+        [SHIRT] = {r = 255, g = 0, b = 0},
+        [CAP] = {r = 255, g = 0, b = 0},
+        [SKIN] = {r = 255, g = 0, b = 0},
+        [HAIR] = {r = 255, g = 0, b = 0},
+        [GLOVES] = {r = 255, g = 0, b = 0},
+        [SHOES] = {r = 255, g = 0, b = 0},
+        [EMBLEM] = {r = 255, g = 0, b = 0},
+    }
+}
+
+
+local function set_player_palette(m, palette)
+    if not palette then
+        return
+    end
+
+    local np = gNetworkPlayers[m.playerIndex]
+
+    for part, color in pairs(palette) do
+        if color then
+            network_player_set_override_palette_color(np, part, color)
+        end
+    end
+end
+
 local function mario_check_death(m)
     if m.playerIndex ~= 0 then
         return
@@ -19,10 +47,12 @@ local function mario_update_checkpoint(m)
         return
     end
 
+    local np = gNetworkPlayers[m.playerIndex]
+
     if gCheckpointTimer ~= 0 then
         if gCheckpointTimer == 1 then
             vec3f_copy(m.pos, gCheckpointPos)
-            --set_player_lights_red(m.marioObj.header.gfx.sharedChild, false)
+            network_player_reset_override_palette(np)
             m.flags = 16;
             m.action = 0x0C400201;
         end
@@ -33,10 +63,16 @@ local function mario_update_checkpoint(m)
     if m.hurtCounter >= 1 then
         audio_stream_play(deathSound, false, 1)
         m.flags = 20;
-        --set_player_lights_red(m.marioObj.header.gfx.sharedChild, true)
         m.hurtCounter = 0;
         gCheckpointTimer = 23;
     end
+
+    if (m.flags & MARIO_METAL_CAP) ~= 0 then
+        for i = 0, PLAYER_PART_MAX - 1 do
+            network_player_set_override_palette_color(np, i, {r = 255, g = 0, b = 0})
+        end
+    end
+
 end
 
 function mario_wrap_y_pos(m)

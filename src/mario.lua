@@ -73,7 +73,7 @@ function mario_palette_swap(m)
         end
     end
 
-    if not _G.charSelectExists then
+    if not charSelectExists then 
         if s.playerDead == 0 then
             network_player_reset_override_palette(np)
         end
@@ -89,7 +89,7 @@ local function mario_update(m)
     m.marioObj.hookRender = 1
     mario_check_death(m)
     mario_update_checkpoint(m)
-    mario_wrap_y_pos(Sm)
+    mario_wrap_y_pos(m)
     mario_palette_swap(m)
 end
 

@@ -41,6 +41,7 @@ local function mario_update_checkpoint(m)
             s.playerDead = 0
             m.flags = 16;
             m.action = 0x0C400201;
+            network_player_reset_override_palette(gNetworkPlayers[m.playerIndex])
         end
 
         gCheckpointTimer = gCheckpointTimer - 1
@@ -90,12 +91,6 @@ function mario_palette_swap(m)
             network_player_set_override_palette_color(np, i, {r = 255, g = 0, b = 0})
         end
     end
-
-
-        if s.playerDead == 0 then
-            network_player_reset_override_palette(np)
-        end
-    
 
 end
 

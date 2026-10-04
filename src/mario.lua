@@ -91,11 +91,11 @@ function mario_palette_swap(m)
         end
     end
 
-    if not charSelectExists then 
+
         if s.playerDead == 0 then
             network_player_reset_override_palette(np)
         end
-    end
+    
 
 end
 

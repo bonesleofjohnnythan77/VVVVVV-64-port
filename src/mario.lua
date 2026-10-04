@@ -1,6 +1,3 @@
-local deathSound = audio_stream_load("sound/sound_death.mp3")
-
-
 for i = 0, MAX_PLAYERS - 1 do
     local s = gPlayerSyncTable[i]
     s.playerDead = 0
@@ -28,6 +25,7 @@ local function mario_check_death(m)
 end
 
 local function mario_update_checkpoint(m)
+    
     if m.playerIndex ~= 0 then
         return
     end
@@ -49,11 +47,8 @@ local function mario_update_checkpoint(m)
 
     if m.hurtCounter >= 1 then
         
-        if charSelectExists and charSelect.character_get_current_number(0) ~= CT_VIRIDIAN then
-        audio_stream_play(deathSound, false, 1)
-        djui_chat_message_create("dead")
-        end
-        audio_stream_play(deathSound, false, 1)
+        
+        --audio_stream_play(deathSound, false, 1)
 
         local char = get_character_number(m)
         

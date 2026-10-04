@@ -10,6 +10,6 @@ end)
 
 hook_event(HOOK_ON_MODS_LOADED, function()
     gServerSettings.stayInLevelAfterStar = false
-    gServerSettings.bubbleDeath = false
+    gServerSettings.bubbleDeath = 0
     gServerSettings.playerInteractions = PLAYER_INTERACTIONS_NONE
 end)

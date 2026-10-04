@@ -6,6 +6,13 @@ for i = 0, MAX_PLAYERS - 1 do
     s.playerDead = 0
 end
 
+local function get_character_number(m)
+    if charSelectExists then
+        return charSelect.character_get_current_number(m.playerIndex)
+    end
+
+    return m.character.type
+end
 
 local function mario_check_death(m)
     if m.playerIndex ~= 0 then
@@ -26,6 +33,7 @@ local function mario_update_checkpoint(m)
     end
 
     local s = gPlayerSyncTable[0]
+    
 
     if gCheckpointTimer ~= 0 then
         if gCheckpointTimer == 1 then
@@ -39,12 +47,19 @@ local function mario_update_checkpoint(m)
     end
 
     if m.hurtCounter >= 1 then
+        
         if charSelectExists and charSelect.character_get_current_number(0) ~= CT_VIRIDIAN then
         audio_stream_play(deathSound, false, 1)
         djui_chat_message_create("dead")
         end
         audio_stream_play(deathSound, false, 1)
+
+        local char = get_character_number(m)
+        
+        if char < CT_MAX then
         m.flags = 20;
+        end
+
         s.playerDead = 1
         m.hurtCounter = 0;
         gCheckpointTimer = 23;

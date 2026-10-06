@@ -60,19 +60,22 @@ local function buttonbhv(m)
             m.controller.buttonPressed = m.controller.buttonPressed & ~L_CBUTTONS
         end
     end
-     djui_chat_message_create("fixcam: " .. fixcam)
+     
 end
 
----@param m MarioState
-function movement(m)
+
+function movement()
+    local m = gMarioStates[0]
     local np = gNetworkPlayers[m.playerIndex]
     local level_data = levels[np.currLevelNum]
 
     if level_data ~= nil then
         if level_data[2] then
             m.pos.x = level_data[3]
+            m.vel.x = level_data[3]
         else
             m.pos.z = level_data[3]
+            m.vel.z = level_data[3]
         end
     end
 
@@ -127,4 +130,4 @@ end
 hook_event(HOOK_ON_SET_MARIO_ACTION, actionfix)
 hook_event(HOOK_ON_LEVEL_INIT, levelinit)
 hook_event(HOOK_BEFORE_MARIO_UPDATE, buttonbhv)
-hook_event(HOOK_MARIO_UPDATE, movement)
+hook_event(HOOK_BEFORE_PHYS_STEP, movement)

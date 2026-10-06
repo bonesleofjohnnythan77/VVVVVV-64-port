@@ -32,7 +32,7 @@ const LevelScript level_wf_entry[] = {
     LOAD_MODEL_FROM_GEO(0x26, castle_door_geo),
     MARIO(/* Model */ 0x1, /* Param */ 0x1, /* Behavior */ bhvMario),
     AREA(/* Index */ 1, /* Geo */ wf_area_1_geo_19005000),
-    OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 1020, 30548, /* Angle */ 0, 0, 0, /* Param */ 0xa0a0000, /* Behavior */ bhvSpinAirborneWarp, /* Act */ 31),
+    OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 1020, 30548, /* Angle */ 0, -90, 0, /* Param */ 0xa0a0000, /* Behavior */ bhvSpinAirborneWarp, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0x41, /* Pos */ 0, 0, 32767, /* Angle */ 0, 90, 0, /* Param */ 0x0, /* Behavior */ bhvSpikeWall, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0xf, /* Pos */ 0, 2520, 30548, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvCheckpointMarker, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0xa, /* Pos */ 0, 0, 30548, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvCheckpoint, /* Act */ 31),

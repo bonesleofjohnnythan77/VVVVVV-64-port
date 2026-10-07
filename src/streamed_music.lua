@@ -5,7 +5,7 @@ local playingMusic = {}
 
 function replace_sequence_streamed(seqId, soundFile, looping, loopStart, loopEnd)
     local stream = audio_stream_load(soundFile)
-    if stream then
+    if stream then -- it tells me that stream is nil if i don't do this??
         audio_stream_set_looping(stream, looping)
 
         if loopStart and loopEnd then

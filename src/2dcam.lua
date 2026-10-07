@@ -18,14 +18,9 @@ function lockbuttons(m)
         m.controller.buttonPressed = m.controller.buttonPressed - R_CBUTTONS
     end
 
-     if (m.controller.buttonPressed & R_TRIG) ~= 0 then
-        reset_camera(m.area.camera)
-    end
-
-
     if m.playerIndex ~= 0 then return end
 
-    m.controller.buttonPressed = m.controller.buttonPressed & ~(R_CBUTTONS | L_CBUTTONS)
+    m.controller.buttonPressed = m.controller.buttonPressed & ~(R_CBUTTONS | L_CBUTTONS | R_TRIG)
 
     if (m.controller.buttonPressed & D_CBUTTONS) ~= 0 and gLakituState.mode == CAMERA_MODE_C_UP then
         fixcam = -levels[np.currLevelNum][1] + 1

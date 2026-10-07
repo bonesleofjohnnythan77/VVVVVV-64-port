@@ -1,66 +1,67 @@
-local streams = {}
-local prevMusic = -1
+gStreamedMusic = {}
+
+-- music that's currently played, indexed by sequence player
+local playingMusic = {}
 
 function replace_sequence_streamed(seqId, soundFile, looping, loopStart, loopEnd)
-    smlua_audio_utils_replace_sequence(seqId, 0, 75, "00_Seq_Custom") -- silence
-    local stream = audio_stream_load(soundFile)
+    local stream = audio_load(soundFile, MA_TYPE_STREAM)
 
-    if looping then
-        audio_stream_set_looping(stream, true)
+    audio_stream_set_looping(stream, looping)
 
-        if loopStart and loopEnd then
-            audio_stream_set_loop_points(stream, loopStart, loopEnd)
-        end
+    if loopStart and loopEnd then
+        audio_stream_set_loop_points(stream, loopStart, loopEnd)
     end
 
-    streams[seqId] = stream
+    gStreamedMusic[seqId] = stream
+end
+
+local function on_seq_load(player, seqId)
+    local music = gStreamedMusic[seqId]
+    local prevMusic = playingMusic[player]
+
+    if prevMusic then
+        audio_stream_stop(prevMusic)
+    end
+
+    if music then
+        djui_chat_message_create("play " .. player .. " " .. seqId)
+        audio_stream_play(music, false, 1.0)
+
+        playingMusic[player] = music
+        return 0
+    end
 end
 
 local function streamed_music_update()
-    local curMusic = get_current_background_music() & 0xFF
+    for player, stream in pairs(playingMusic) do
+        if stream then
+            local volume = 1.0
 
-    if curMusic ~= prevMusic then
-        local prevStream = streams[prevMusic]
+            local baseVolume = 75 / 127 -- can't get default volume
+            local fadeVolume = sequence_player_get_fade_volume(player)
 
-        if prevStream then
-            audio_stream_stop(prevStream)
-        end
+            volume = volume * get_volume_master() / 127
+            --volume = volume * sequence_player_get_volume(player)
+            volume = volume * fadeVolume / baseVolume
 
-        local nextStream = streams[curMusic]
+            if is_game_paused() then
+                -- last impact doesn't have mute behaviors, volume always softens when paused
+                -- volume = volume * sequence_player_get_mute_volume_scale(SEQ_PLAYER_LEVEL)
+                volume = volume * 0.31
+            end
 
-        if nextStream then
-            audio_stream_play(nextStream, false, 1.0)
+            volume = math.clamp(volume, 0, 1)
+
+            if volume == 0 then
+                audio_stream_pause(stream)
+                return
+            end
+
+            audio_stream_set_volume(stream, volume)
         end
     end
-
-    local curStream = streams[curMusic]
-
-    if curStream then
-        local volume = 1.0
-
-        local baseVolume = get_current_background_music_default_volume() / 127
-        local fadeVolume = sequence_player_get_fade_volume(SEQ_PLAYER_LEVEL)
-
-        volume = volume * get_volume_master() / 127
-        volume = volume * fadeVolume / baseVolume
-
-        if is_game_paused() then
-            -- last impact doesn't have mute behaviors, volume always softens when paused
-            -- volume = volume * sequence_player_get_mute_volume_scale(SEQ_PLAYER_LEVEL)
-            volume = volume * 0.31
-        end
-
-        volume = math.clamp(volume, 0, 1)
-
-        if volume == 0 then
-            audio_stream_pause(curStream)
-            return
-        end
-
-        audio_stream_set_volume(curStream, volume)
-    end
-
-    prevMusic = curMusic
 end
 
 hook_event(HOOK_UPDATE, streamed_music_update)
+hook_event(HOOK_ON_SEQ_LOAD, on_seq_load)
+

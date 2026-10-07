@@ -4,15 +4,16 @@ gStreamedMusic = {}
 local playingMusic = {}
 
 function replace_sequence_streamed(seqId, soundFile, looping, loopStart, loopEnd)
-    local stream = audio_load(soundFile, MA_TYPE_STREAM)
+    local stream = audio_stream_load(soundFile)
+    if stream then
+        audio_stream_set_looping(stream, looping)
 
-    audio_stream_set_looping(stream, looping)
+        if loopStart and loopEnd then
+            audio_stream_set_loop_points(stream, loopStart, loopEnd)
+        end
 
-    if loopStart and loopEnd then
-        audio_stream_set_loop_points(stream, loopStart, loopEnd)
+        gStreamedMusic[seqId] = stream
     end
-
-    gStreamedMusic[seqId] = stream
 end
 
 local function on_seq_load(player, seqId)
@@ -64,4 +65,3 @@ end
 
 hook_event(HOOK_UPDATE, streamed_music_update)
 hook_event(HOOK_ON_SEQ_LOAD, on_seq_load)
-

@@ -1,7 +1,3 @@
-for i = 0, MAX_PLAYERS - 1 do
-    local s = gPlayerSyncTable[i]
-    s.playerDead = 0
-end
 
 local function get_character_number(m)
     if charSelectExists then
@@ -84,7 +80,7 @@ function mario_palette_swap(m)
     if s.playerDead >= 1 then
         for i = 0, PLAYER_PART_MAX - 1 do
             network_player_set_override_palette_color(np, i, {r = 255, g = 0, b = 0})
-        end
+        end 
     end
 
 end

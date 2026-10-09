@@ -4,4 +4,5 @@
 require "data/scrolltex"
 require "data/text"
 require "data/tweaks"
+require "data/charselect"
 require "src/init"

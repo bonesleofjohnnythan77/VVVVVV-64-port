@@ -9,6 +9,7 @@ local levels = {
 -- prevents players from using camera buttons (left/right) and stick up/down, unless in c-up mode
 ---@param m MarioState
 function lockbuttons(m)
+    if not camera_config_is_free_cam_enabled() then
     local l = gLakituState
     local np = gNetworkPlayers[m.playerIndex]
     if levels[np.currLevelNum] == nil then return end
@@ -18,6 +19,10 @@ function lockbuttons(m)
     if m.controller.buttonPressed & R_CBUTTONS ~= 0 then
         m.controller.buttonPressed = m.controller.buttonPressed - R_CBUTTONS
     end
+    if m.controller.buttonPressed & R_TRIG ~= 0 then
+        reset_camera(m.area.camera)
+    end
+
 
     if m.controller.buttonPressed & D_CBUTTONS ~= 0 and l.mode == CAMERA_MODE_C_UP then
         reset_camera(m.area.camera)
@@ -40,7 +45,7 @@ function lockbuttons(m)
         m.controller.stickX = 0
         m.controller.stickMag = 0
     end
-
+    end
 end
 
 function twodee(m)
@@ -52,7 +57,7 @@ function twodee(m)
             m.pos.z = levels[np.currLevelNum][3] -- lock z coordinate instead 
         end
     end
-    djui_chat_message_create("x: " .. m.marioBodyState.headAngle.x .. "y: " .. m.marioBodyState.headAngle.y.. "z: " .. m.marioBodyState.headAngle.z)
+   
 end
 
 function levelinit()

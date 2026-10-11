@@ -71,7 +71,7 @@ function mario_palette_swap(m)
             network_player_set_override_palette_color(np, i, { r = 255, g = 0, b = 0 })
             djui_chat_message_create("poinrt")
         end
-        if s.fixTimer == math.abs(1) then
+        if s.fixTimer == 1 then
             network_player_reset_override_palette(np)
         end
     end

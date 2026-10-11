@@ -21,7 +21,7 @@ const LevelScript level_castle_grounds_entry[] = {
     LOAD_MODEL_FROM_GEO(0x26, castle_door_geo),
     MARIO(/* Model */ 0x1, /* Param */ 0x1, /* Behavior */ bhvMario),
     AREA(/* Index */ 1, /* Geo */ castle_grounds_area_1_geo_19005000),
-    OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 3150, 0, /* Angle */ 0, 0, 0, /* Param */ 0xa0000, /* Behavior */ bhvSpinAirborneWarp, /* Act */ 31),
+    OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 0, 0, /* Angle */ 0, 0, 0, /* Param */ 0xa0000, /* Behavior */ bhvSpinAirborneWarp, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 1187, 450, -1865, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvCheckpoint, /* Act */ 0),
     OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 0, 0, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvStarDoor, /* Act */ 0),
     OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 0, 0, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvStarDoor, /* Act */ 0),

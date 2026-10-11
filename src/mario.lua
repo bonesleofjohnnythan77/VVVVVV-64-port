@@ -74,7 +74,7 @@ function mario_palette_swap(m)
     end
 
     if s.fixTimer == 1 then
-        djui_chat_message_create("reset")
+        --djui_chat_message_create("reset")
         network_player_reset_override_palette(np)
     end
 end

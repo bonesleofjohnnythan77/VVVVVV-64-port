@@ -4,6 +4,7 @@ for i = 0, MAX_PLAYERS - 1 do
     s.playerDead = 0
     s.glow = 0
     s.glowDir = 0
+    s.fixTimer = 0
 end
 
 function palette_but_romhack(m)

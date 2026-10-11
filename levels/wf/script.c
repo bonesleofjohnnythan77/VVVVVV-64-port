@@ -62,7 +62,7 @@ const LevelScript level_wf_entry[] = {
     OBJECT_WITH_ACTS(/* Model */ 0xce, /* Pos */ -278, 570, -19265, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvSnufit, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0xce, /* Pos */ 263, 480, -20106, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvSnufit, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0xce, /* Pos */ -547, 900, -20572, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvSnufit, /* Act */ 31),
-    OBJECT_WITH_ACTS(/* Model */ 0x7a, /* Pos */ 0, -712, -29965, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvStar, /* Act */ 31),
+    OBJECT_WITH_ACTS(/* Model */ 0x7a, /* Pos */ 0, -712, -29965, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */bhvStarSpawn, /* Act */ 31),
     OBJECT_WITH_ACTS(/* Model */ 0x0, /* Pos */ 0, 101, -9468, /* Angle */ 0, 0, 0, /* Param */ 0x0, /* Behavior */ bhvMrI, /* Act */ 31),
     WARP_NODE(0xa, 0x18, 0x1, 0x0, 0x0),
     WARP_NODE(0xf0, 0xc, 0x1, 0xa, 0x0),

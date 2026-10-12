@@ -1,29 +1,51 @@
-local function bhv_custom_star_init(o)
-    o.oFlags = 0x0001
+local function hook_bhv_star_init(o)
+    o.oFlags = o.oFlags | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE
+
+    bhv_init_room()
     bhv_collect_star_init()
+
+    network_init_object(o, false, nil)
 end
 
-local function bhv_custom_star_loop(o)
-    o.oFaceAngleYaw = o.oFaceAngleYaw + 0x800;
+local function hook_bhv_star_loop(o)
     local m = gMarioStates[0]
 
     if obj_check_if_collided_with_object(o, m.marioObj) ~= 0 then
-        interact_star_or_key(m, 0, o)
-        obj_mark_for_deletion(o)
+        cur_obj_become_intangible()
+        cur_obj_hide()
+        o.oAction = 999
     end
 
-    spawn_star_number()
+    o.oInteractStatus = 0
+    bhv_collect_star_loop()
+
+    o.activeFlags = 257
 end
 
-bhvCustomStar = hook_behavior(nil, OBJ_LIST_LEVEL, true, bhv_custom_star_init, bhv_custom_star_loop, "bhvCustomStar")
+hook_behavior(id_bhvStar, OBJ_LIST_LEVEL, true, hook_bhv_star_init, hook_bhv_star_loop, "bhvStar")
 
-local function bhv_star_spawn_init(o)
-    cur_obj_hide()
+local function hook_bhv_star_spawn_init(o)
+    o.oFlags = o.oFlags | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE
 
-    spawn_non_sync_object(bhvCustomStar, E_MODEL_NONE, o.oPosX, o.oPosY, o.oPosZ, function(star)
-        star.oBehParams = o.oBehParams
-        star.oBehParams2ndByte = o.oBehParams2ndByte
-    end)
+    bhv_collect_star_init()
+    bhv_star_spawn_init()
+
+    network_init_object(o, false, nil)
 end
 
-bhvStarSpawn = hook_behavior(nil, OBJ_LIST_LEVEL, false, bhv_star_spawn_init, nil, "bhvStarSpawn")
+local function hook_bhv_star_spawn_loop(o)
+    local m = gMarioStates[0]
+
+    if obj_check_if_collided_with_object(o, m.marioObj) ~= 0 then
+        cur_obj_become_intangible()
+        cur_obj_hide()
+        o.oAction = 999
+    end
+
+    o.oInteractStatus = 0
+    bhv_star_spawn_loop()
+
+    o.activeFlags = 257
+end
+
+hook_behavior(id_bhvStarSpawnCoordinates, OBJ_LIST_LEVEL, true, hook_bhv_star_spawn_init, hook_bhv_star_spawn_loop, "bhvStarSpawnCoordinates")

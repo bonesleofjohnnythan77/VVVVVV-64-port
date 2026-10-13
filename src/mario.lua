@@ -1,3 +1,10 @@
+for i = 0, MAX_PLAYERS - 1 do
+  table[i] = {
+    playerDead = false,
+  }
+end
+
+
 local function get_character_number(m)
     if charSelectExists then
         return charSelect.character_get_current_number(m.playerIndex)
@@ -63,6 +70,7 @@ function mario_palette_swap(m)
     if not np.connected then return end
 
     if s.fixTimer ~= 0 then
+        table[m.playerIndex].playerDead = true
         network_player_set_override_palette_color(np, PANTS, { r = 255, g = 0, b = 0 })
         network_player_set_override_palette_color(np, SHIRT, { r = 255, g = 0, b = 0 })
         network_player_set_override_palette_color(np, GLOVES, { r = 255, g = 0, b = 0 })
@@ -73,7 +81,8 @@ function mario_palette_swap(m)
         network_player_set_override_palette_color(np, EMBLEM, { r = 255, g = 0, b = 0 })
     end
 
-    if s.fixTimer == 1 then
+    if s.fixTimer == 1 and table[m.playerIndex].playerDead then
+        table[m.playerIndex].playerDead = false
         --djui_chat_message_create("reset")
         network_player_reset_override_palette(np)
     end

@@ -1,7 +1,7 @@
 --this is a terrible way of fixing an issue i was having for my character mod, but im very much not very code knowledgy yet, sorry about that.
 for i = 0, MAX_PLAYERS - 1 do
     local s = gPlayerSyncTable[i]
-    s.playerDead = 0
+    s.playerDead = false
     s.glow = 0
     s.glowDir = 0
     s.fixTimer = 0
@@ -30,7 +30,7 @@ function palette_but_romhack(m)
 
         local glow = s.Glow
 
-        if s.playerDead == 0 then
+        if s.playerDead == false then
             --clamping needed here else it breaks because ???.
             local r = math.max(0, math.min(255, math.floor(defaultCap.r - (glow / 2) - (math.random() * 20))))
             local g = math.max(0, math.min(255, math.floor(defaultCap.g - (glow / 2))))

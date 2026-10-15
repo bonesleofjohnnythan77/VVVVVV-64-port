@@ -54,7 +54,7 @@ local function hook_bhv_star_spawn_loop(o)
         o.oPosY = o.oStarSpawnUnkFC + sins((o.oTimer * 0x8000) / 30) * 400.0
         o.oFaceAngleYaw = o.oFaceAngleYaw + 0x1000
 
-        spawn_non_sync_object(id_bhvSparkleSpawn, E_MODEL_NONE, o.oPosX, o.oPosY, o.oPosZ)
+        spawn_non_sync_object(id_bhvSparkleSpawn, E_MODEL_NONE, o.oPosX, o.oPosY, o.oPosZ, nil)
         cur_obj_play_sound_1(SOUND_ENV_STAR)
 
         if o.oTimer == 30 then
@@ -69,7 +69,7 @@ local function hook_bhv_star_spawn_loop(o)
             o.oVelY = -10.0
         end
 
-        spawn_non_sync_object(id_bhvSparkleSpawn, E_MODEL_NONE, o.oPosX, o.oPosY, o.oPosZ)
+        spawn_non_sync_object(id_bhvSparkleSpawn, E_MODEL_NONE, o.oPosX, o.oPosY, o.oPosZ, nil)
         obj_move_xyz_using_fvel_and_yaw(o)
         o.oFaceAngleYaw = o.oFaceAngleYaw - o.oTimer * 0x10 + 0x1000
         cur_obj_play_sound_1(SOUND_ENV_STAR)

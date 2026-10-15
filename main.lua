@@ -4,7 +4,6 @@
 require "data/scrolltex"
 require "data/text"
 require "data/tweaks"
-require "data/charselect"
 require "src/init"
 gServerSettings.stayInLevelAfterStar = STAR_LEAVE_LEVEL
 gServerSettings.bubbleDeath = false

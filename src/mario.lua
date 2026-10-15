@@ -108,7 +108,7 @@ function palette_but_romhack(m)
         if m.playerIndex == 0 then
             if (s.GlowDir or 0) == 0 then
                 s.Glow = (s.Glow or 0) + 2
-                if s.Glow >= 60 then s.GlowDir = 1 end
+                if s.Glow >= 62 then s.GlowDir = 1 end
             else
                 s.Glow = (s.Glow or 0) - 2
                 if s.Glow <= 0 then s.GlowDir = 0 end

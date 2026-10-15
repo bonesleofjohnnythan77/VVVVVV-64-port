@@ -25,7 +25,6 @@ local function on_seq_load(player, seqId)
     end
 
     if music then
-        djui_chat_message_create("play " .. player .. " " .. seqId)
         audio_stream_play(music, false, 1.0)
 
         playingMusic[player] = music

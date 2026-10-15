@@ -1,5 +1,5 @@
 -- name: VVVVVV 64
--- description: VVVVVV 64 Romhack port.
+-- description: A port of VVVVVV 64 by QJRocks, this hack has 3 levels with mechanics based on the original VVVVVV game, and it won the 6th place on the Simpleflips' Linear Hack Competition.\n\nCredits:\nB. Bones Johnson - Porter\npipocalio - Porter\nQJRocks - OG Hack Author\n
 -- incompatible: romhack
 require "data/scrolltex"
 require "data/text"
